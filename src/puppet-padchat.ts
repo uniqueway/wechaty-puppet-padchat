@@ -1529,10 +1529,9 @@ export class PuppetPadchat extends Puppet {
   }
 
   public async friendshipSearch (
-    contactId  : string,
-    hello      : string,
+    contactId  : string
   ) : Promise<WXSearchContactType> {
-    log.verbose('PuppetPadchat', 'friendSearch(%s, %s)', contactId, hello)
+    log.verbose('PuppetPadchat', 'friendSearch(%s, %s)', contactId)
 
     if (!this.padchatManager) {
       throw new Error('no padchat manager')

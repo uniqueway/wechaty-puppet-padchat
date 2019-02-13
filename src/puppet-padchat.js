@@ -1850,10 +1850,10 @@ var PuppetPadchat = /** @class */ (function (_super) {
             });
         });
     };
-    PuppetPadchat.prototype.friendShipSearch = function (contactId, hello) {
+    PuppetPadchat.prototype.friendshipSearch = function (contactId) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                config_1.log.verbose('PuppetPadchat', 'friendSearch(%s, %s)', contactId, hello);
+                config_1.log.verbose('PuppetPadchat', 'friendSearch(%s, %s)', contactId);
                 if (!this.padchatManager) {
                     throw new Error('no padchat manager');
                 }
