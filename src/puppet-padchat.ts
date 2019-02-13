@@ -1528,6 +1528,22 @@ export class PuppetPadchat extends Puppet {
     )
   }
 
+  public async friendshipSearch (
+    contactId  : string,
+    hello      : string,
+  ) : Promise<WXSearchContactType> {
+    log.verbose('PuppetPadchat', 'friendSearch(%s, %s)', contactId, hello)
+
+    if (!this.padchatManager) {
+      throw new Error('no padchat manager')
+    }
+    try {
+      return this.padchatManager.WXSearchContact(contactId)
+    } catch (e) {
+      throw Error(`Can not add user ${contactId}, this contactId is not searchable. Please refer to issue: https://github.com/lijiarui/wechaty-puppet-padchat/issues/166`)
+    }
+  }
+
   public async friendshipAccept (
     friendshipId : string,
   ): Promise<void> {

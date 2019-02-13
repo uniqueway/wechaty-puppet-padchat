@@ -1,0 +1,9 @@
+"use strict";
+exports.__esModule = true;
+exports.generateAppXMLMessage = function (_a) {
+    var title = _a.title, description = _a.description, url = _a.url, thumbnailUrl = _a.thumbnailUrl;
+    return "\n    <appmsg appid=\"\" sdkver=\"0\">\n      <title>" + title + "</title>\n      <des>" + description + "</des>\n      <username></username>\n      <action>view</action>\n      <type>5</type>\n      <showtype>0</showtype>\n      <url>" + url.replace(/&/g, '&amp;') + "</url>\n      <contentattr>0</contentattr>\n      " + (thumbnailUrl ? '<thumburl>' + thumbnailUrl.replace(/&/g, '&amp;') + '</thumburl>' : '') + "\n    </appmsg>\n  ";
+};
+exports.generateAttachmentXMLMessageFromRaw = function (payload) {
+    return "\n  <appmsg appid=\"\" sdkver=\"0\">\n    <title>" + payload.title + "</title>\n    <des></des>\n    <action></action>\n    <type>" + payload.type + "</type>\n    <showtype>0</showtype>\n    <mediatagname></mediatagname>\n    <messageaction></messageaction>\n    <content></content>\n    <url></url>\n    <lowurl></lowurl>\n    <dataurl></dataurl>\n    <lowdataurl></lowdataurl>\n    <appattach>\n      <totallen>" + (payload.appattach && payload.appattach.totallen) + "</totallen>\n      <attachid>\n        " + (payload.appattach && payload.appattach.attachid) + "\n      </attachid>\n      <emoticonmd5></emoticonmd5>\n      <fileext>" + (payload.appattach && payload.appattach.fileext) + "</fileext>\n      <cdnattachurl>\n        " + (payload.appattach && payload.appattach.cdnattachurl) + "\n      </cdnattachurl>\n      <aeskey>" + (payload.appattach && payload.appattach.aeskey) + "</aeskey>\n      <encryver>" + (payload.appattach && payload.appattach.encryver) + "</encryver>\n    </appattach>\n    <extinfo></extinfo>\n    <sourceusername></sourceusername>\n    <sourcedisplayname></sourcedisplayname>\n    <commenturl></commenturl>\n    <thumburl></thumburl>\n    <md5>" + payload.md5 + "</md5>\n  </appmsg>\n  ";
+};
