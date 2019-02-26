@@ -20,7 +20,6 @@ npm run lint
 [ -z "$CYGWIN" ] && {
   # git rebase
   rm -f package-lock.json
-  npm version patch --no-package-lock
   HUAN_INNER_PRE_HOOK=1 git push
 
   cat <<'_STR_'
